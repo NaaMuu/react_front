@@ -1,0 +1,75 @@
+.header {
+    background-color: #23272F;
+    width: 100%;
+    height: 75px;
+
+    
+    position: fixed;
+    top: 0;
+    /* 화면 상단에 위치하도록 설정 */
+    z-index: 100;
+    /* 다른 요소보다 위에 배치되도록 설정 */
+    display: flex;
+    /* Flexbox를 사용하여 내부 요소 배치 */
+    align-items: center;
+    /* 수직 방향으로 요소를 중앙에 배치 */
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0px auto 75px;
+}
+
+.header_logo {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 20px;
+    font-weight: bold;
+    
+}
+
+/* 네비게이션 왼쪽 영역 */
+.header_left {
+    display: flex;
+    align-items: center;
+}
+
+/* 네비게이션 스타일 */
+.head_nav {
+    display: flex;
+    gap: 4px;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    /* 배경색이 0.3초 동안 부드럽게 변화 */
+}
+
+/* 네비게이션 오른쪽 영역 */
+.header_right {
+    margin-left: auto;
+    margin-right: 8px;
+    /* 왼쪽에 자동 여백을 추가하여 오른쪽으로 이동 */
+}
+
+.header_right .login {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* 네비게이션 마우스 오버 */
+.header_nav a:hover {
+    background-color: #16181D;
+}
+
+.header_right .login:hover {
+    background-color: #16181D;
+}
