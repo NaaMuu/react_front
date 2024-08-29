@@ -1,17 +1,16 @@
-import { useState } from "react";
 import "./List.css";
+import { useNavigate } from 'react-router-dom';
+import Post from "../Post/Post.js";
+
 const List = () => {
-    const [post, setPost] = useState({
-        title: "제목",
-        content: "내용",
-        author: "작성자",
-        time: "시간"
-    })
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/post`);
+    };
+
     return (
-        <form className="List_form">
-            <div>
-                {post.title}
-            </div>
+        <form className="List_form" onClick={handleClick}>
+            <Post/>
         </form>
     )
 }
