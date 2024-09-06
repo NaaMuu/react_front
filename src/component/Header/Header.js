@@ -7,9 +7,9 @@ const Header = () => {
             <Link to="" className="header_logo">로고</Link>
             <div className="header_left">
                 <nav className="header_nav">
-                    <Link to="nav1">카테고리1</Link>
-                    <Link to="nav2">카테고리2</Link>
-                    <Link to="nav3">카테고리3</Link>
+                    <Link to="main_list">메인리스트</Link>
+                    <Link to="my_list">내리스트</Link>
+                    <Link to="nav3">카테고리_여분</Link>
                 </nav>
             </div>
             <div className="header_right">

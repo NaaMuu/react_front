@@ -1,4 +1,14 @@
-.List_form {
+.main_list_div {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 75px auto;
+    width: 80%;
+    border: 1px solid #fff;
+
+}
+
+.main_list_form {
     background-color: #FFFFC8;
     border: none;
     border-radius: 10px;
@@ -11,7 +21,7 @@
     cursor: pointer;
 }
 
-.List_form:hover {
+.main_lit_form:hover {
     opacity: 0.8;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
