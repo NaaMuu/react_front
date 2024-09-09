@@ -12,12 +12,16 @@ const Main_List = () => {
 
     return (
         <div className="main_list_div">
-            {post.map(p => (
-                <form className="main_list_form" key={p.num} onClick={() => handleClick(p.num)}>
-                    <p>{p.title}</p>
-                    <p>{p.content}</p>
-                </form>
-            ))}
+            {post.length > 0 ? (
+                post.map(p => (
+                    <form className="main_list_form" key={p.num} onClick={() => handleClick(p.num)}>
+                        <p>{p.title}</p>
+                        <p>{p.content}</p>
+                    </form>
+                ))
+            ) : (
+                <p>데이터가 없습니다.</p>
+            )}
         </div>
     )
 }

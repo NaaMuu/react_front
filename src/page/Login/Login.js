@@ -1,19 +1,20 @@
-import { useState } from "react";
 import "./Login.css";
+import { useState } from "react";
+import useLogin from "../../hook/useLogin.js";
 
 const Login = () => {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
+    const { handleLogin, loading, error } = useLogin();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!id || !pw) {
             alert("아이디와 비밀번호를 모두 입력해주세요.");
+        } else {
+            handleLogin(id, pw);
         }
-        else {
-            console.log("폼 제출 완료 : ", id, pw);
-        }
-    }
+    };
 
     return (
         <div className="login">
@@ -26,17 +27,16 @@ const Login = () => {
                     onChange={(e) => setId(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="password"
                     placeholder="비밀번호"
                     value={pw}
                     onChange={(e) => setPw(e.target.value)}
                 />
-                <button>
-                    로그인
-                </button>
+                <button type="submit" disabled={loading}>로그인</button>
             </form>
+            {error && <p>{error.message}</p>}
         </div>
-    )
-}
+    );
+};
 
 export default Login;

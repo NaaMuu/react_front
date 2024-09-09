@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useFetchPosts = () => {
+const useFetchPost = () => {
     const [post, setPost] = useState([]);
     const [error, setError] = useState(null);
 
@@ -18,4 +18,4 @@ const useFetchPosts = () => {
     return { post, error };
 };
 
-export default useFetchPosts;
+export default useFetchPost;
