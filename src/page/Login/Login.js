@@ -1,11 +1,13 @@
 import "./Login.css";
 import { useState } from "react";
 import useLogin from "../../hook/useLogin.js";
+import { useAuth } from '../../context/AuthContext';
 
 const Login = () => {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
-    const { handleLogin, loading, error } = useLogin();
+    const { setIsLogIn } = useAuth(); // 상태 가져오기
+    const { handleLogin, loading, error } = useLogin(setIsLogIn);
 
     const handleSubmit = (e) => {
         e.preventDefault();

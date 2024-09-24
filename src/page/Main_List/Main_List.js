@@ -14,7 +14,17 @@ const Main_List = () => {
         <div className="main_list_div">
             {post.length > 0 ? (
                 post.map(p => (
-                    <form className="main_list_form" key={p.num} onClick={() => handleClick(p.num)}>
+                    <form className="main_list_form"
+                        key={p.num}
+                        onClick={() => handleClick(p.num)}
+                        style={{
+                            backgroundColor:
+                            p.color === 'yellow' ? '#FFFFC8' :
+                            p.color === 'red' ? '#FFC8C8' :
+                            p.color === 'green' ? '#C8FFC8' :
+                            p.color === 'blue' ? '#C8EEFF' :
+                            '#FFFFC8'
+                        }}>
                         <p>{p.title}</p>
                         <p>{p.content}</p>
                     </form>
