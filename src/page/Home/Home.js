@@ -1,11 +1,14 @@
-import "./Home.css";
+import Write_Button from "../../component/Button/Write_Button";
+import { useAuth } from '../../context/AuthContext';
 
 const Home = () => {
+    const { isLogIn } = useAuth();
+
     return (
         <div>
-            홈화면
+            {isLogIn && <Write_Button />}
         </div>
-    )
+    );
 }
 
 export default Home;

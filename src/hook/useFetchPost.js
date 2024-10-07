@@ -14,7 +14,6 @@ const useFetchPost = () => {
                 setError(err);
             });
     }, []);
-
     return { post, error };
 };
 

@@ -1,7 +1,8 @@
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/AuthContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { IoMenu } from "react-icons/io5";
 
 const Header = () => {
     const { isLogIn, setIsLogIn } = useAuth();
@@ -9,13 +10,6 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // 토글 메뉴 상태 관리
 
     const handleLogin = () => {
-        navigate("/login");
-    };
-
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        alert("로그아웃 되었습니다.");
-        setIsLogIn(false); // 로그인 상태 갱신
         navigate("/login");
     };
 
@@ -28,9 +22,23 @@ const Header = () => {
     };
 
     const toggleMenu = () => {
-        setIsMenuOpen(prevState => !prevState); // 메뉴 열고 닫기
+        setIsMenuOpen(prevState => !prevState);
     };
 
+    useEffect(() => {
+        if (!isLogIn) {
+            setIsMenuOpen(false);
+        }
+    }, [isLogIn]);
+    
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        alert("로그아웃 되었습니다.");
+        setIsLogIn(false);
+        setIsMenuOpen(false);
+        navigate("/login");
+    };
+    
     return (
         <div className="header">
             <Link to="/" className="header_logo">로고</Link>
@@ -44,14 +52,13 @@ const Header = () => {
             <div className="header_right">
                 {isLogIn ? (
                     <div className="dropdown">
-                        <button onClick={toggleMenu} className="logout">
-                            {isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+                        <button onClick={toggleMenu} className="menu">
+                            <IoMenu size={40} color="white" />
                         </button>
                         {isMenuOpen && (
                             <ul className="dropdown_menu">
+                                <Link to="/my_info" style={{ textDecoration: 'none', color: 'white' }}><li>내정보</li></Link>
                                 <li onClick={handleLogout}>로그아웃</li>
-                                <li onClick={handleLogout}>내정보</li>
-                                {/* 필요에 따라 다른 메뉴 항목을 추가 가능 */}
                             </ul>
                         )}
                     </div>
