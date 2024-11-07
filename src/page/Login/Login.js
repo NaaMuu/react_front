@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 const Login = () => {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
-    const { setIsLogIn } = useAuth(); // 상태 가져오기
+    const { setIsLogIn } = useAuth(); // 로그인 상태 가져오기
     const { handleLogin, loading, error } = useLogin(setIsLogIn);
 
     const handleSubmit = (e) => {
